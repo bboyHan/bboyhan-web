@@ -2,9 +2,9 @@
   <div>
     <div class="md-shodow">
       <div class="article-title-box">
-        <h2 class="title-article">{{title}}</h2>
+        <h2>{{title}}</h2>
       </div>
-      <mavon-editor id="mdEdit" class="article-info-box"
+      <mavon-editor class="article-info-box"
                     v-model="value"
                     :subfield="false"
                     :defaultOpen="defaultData"
@@ -58,7 +58,11 @@
 <style scoped>
 
   .md-shodow {
-    margin: 10px 30px;
+  margin: 10px 30px;
+  }
+
+  .md-shodow .article-title-box{
+    padding: 10px 10px;
   }
 
 </style>

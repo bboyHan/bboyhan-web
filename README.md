@@ -64,3 +64,19 @@ node_modules/mavon-editor/dist/mavon-editor.js修改样式，
 删除background
 
 ```
+
+### npm run build bug
+
+```
+# 描述：vue打包后出现"Failed to load resource: net::ERR_FILE_NOT_FOUND"错误
+
+解决办法:
+
+打开config/index.js文件，将build->assetsPublicPath改为“./”即可。
+build: {
+    ...
+    // assetsPublicPath: '/',
+    assetsPublicPath: './',
+    ...
+}
+```

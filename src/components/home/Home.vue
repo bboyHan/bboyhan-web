@@ -16,13 +16,11 @@
 <script>
   import HeaderTab from '@/components/home/HeaderTab'
   import MenuTab from '@/components/home/MenuTab'
-  import MarkWall from '@/components/home/MarkWall'
 
   export default {
     components: {
       HeaderTab,
       MenuTab,
-      MarkWall,
     },
     data() {
       return {}

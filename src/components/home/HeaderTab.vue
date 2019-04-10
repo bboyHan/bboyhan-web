@@ -39,12 +39,13 @@
   .header-tab .tab-left {
     width: 60px;
     height: 60px;
-    margin-left: 10%;
+    margin-left: 4%;
   }
 
   .header-tab .tab-right {
     float: right;
     line-height: 60px;
+    margin-right: 1%;
   }
 
 </style>

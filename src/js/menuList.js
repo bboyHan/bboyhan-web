@@ -5,7 +5,7 @@ const menu = [{
   children:[
     {
       id:"1",
-      router:'/tech_article',//路由
+      router:'/article',//路由
       name:'技术杂文',//二级菜单
       children:[]
     },{
@@ -27,7 +27,7 @@ const menu = [{
       children:[]
     },{
       id:"4",
-      router:'/',
+      router:'/a',
       name:'美妙声乐',
       children:[]
     }
@@ -39,12 +39,12 @@ const menu = [{
   children:[
     {
       id:"5",
-      router:'/',//路由
+      router:'/b',//路由
       name:'角色管理',//二级菜单
       children:[]
     },{
       id:"6",
-      router:'/',
+      router:'/c',
       name:'账户管理',
       children:[]
     }

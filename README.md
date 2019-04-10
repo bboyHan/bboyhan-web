@@ -51,3 +51,16 @@ npm i echarts-wordcloud -S
 
 
 ```
+
+### Use ElementUI NavMenu
+
+```
+# 删除背景色
+node_modules/mavon-editor/dist/mavon-editor.js修改样式，
+
+.v-note-wrapper .v-note-panel .v-note-show .v-show-content,
+.v-note-wrapper .v-note-panel .v-note-show .v-show-content-html
+
+删除background
+
+```

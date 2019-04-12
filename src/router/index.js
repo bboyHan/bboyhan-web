@@ -4,6 +4,7 @@ import Home from '@/components/home/Home'
 import MarkWall from '@/components/home/MarkWall'
 
 import Article from '@/components/article/Article'
+import ArticleList from '@/components/article/ArticleList'
 
 import Login from '@/components/login/Login'
 
@@ -28,6 +29,11 @@ export default new Router({
         {
           path: '/article',
           name: '技术杂文',
+          component: ArticleList
+        },
+        {
+          path: '/article/:id',
+          name: '文章',
           component: Article
         }
       ]
@@ -36,6 +42,6 @@ export default new Router({
       path: '/login',
       name: '用户登录',
       component: Login
-    },
+    }
   ]
 })

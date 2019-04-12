@@ -13,9 +13,6 @@
         <el-form-item label="密码" prop="pass">
           <el-input type="password" v-model="userForm.pass" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="确认密码" prop="checkPass">
-          <el-input type="password" v-model="userForm.checkPass" autocomplete="off"></el-input>
-        </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('userForm')">登录</el-button>
           <el-button @click="resetForm('userForm')">重置</el-button>
@@ -56,27 +53,15 @@
           callback();
         }
       };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.userForm.pass) {
-          callback(new Error('两次输入密码不一致!'));
-        } else {
-          callback();
-        }
-      };
+
       return {
         userForm: {
           pass: '',
-          checkPass: '',
           name: ''
         },
         userRule: {
           pass: [
             {validator: validatePass, trigger: 'blur'}
-          ],
-          checkPass: [
-            {validator: validatePass2, trigger: 'blur'}
           ],
           name: [
             {validator: checkName, trigger: 'blur'}
@@ -87,7 +72,7 @@
     methods: {
       submitForm(formName) {
         var _this = this
-
+        debugger
         _this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
@@ -105,25 +90,34 @@
           password: pass
         }
 
-        // _this.http.post('/sys/login', userInfo)
         axios({
-          method: 'post',
-          url: '/sys/login',
+          method: 'get',
+          url: '/user/login',
           withCredentials: true,
-          params: userInfo
+          params: {}
         }).then(function (response) {
+            debugger
             var code = response.code
-            if (code === 0) {
+            if (code === '200') {
               alert('success login')
             }
             console.log(code);
             this.$router.push("/");
+
+            //store user info
+            this.saveUserInfo(response.data.token)
+
           }.bind(this)
-        ).catch(error => console.log(error))
+        ).catch(
+        error => console.log(error)
+      )
 
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      saveUserInfo(userToken) {
+
       }
     }
   }

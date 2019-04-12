@@ -1,0 +1,8 @@
+{
+  "code":"200",
+  "data": {
+    "title": "这是一篇测试文章 -2",
+    "info": "# bboyhan-web - Text 2 \n> bboyhan website\n## Build Setup\n``` bash,\n# install dependencies\nnpm install\n# serve with hot reload at localhost:8080\n```"
+  },
+  "msg": ""
+}

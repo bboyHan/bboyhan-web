@@ -1,45 +1,58 @@
 <template>
   <div>
-    <div class="md-shodow">
-      <div class="article-title-box">
-        <h2>{{title}}</h2>
+
+    <div>
+      <div class="md-shodow">
+        <div class="article-title-box">
+          <h2>{{title}}</h2>
+        </div>
+        <mavon-editor class="article-info-box"
+                      v-model="value"
+                      :subfield="false"
+                      :defaultOpen="defaultData"
+                      :toolbarsFlag="false"
+                      :boxShadow="true"
+                      :editable="false"/>
       </div>
-      <mavon-editor class="article-info-box"
-                    v-model="value"
-                    :subfield="false"
-                    :defaultOpen="defaultData"
-                    :toolbarsFlag="false"
-                    :boxShadow="true"
-                    :editable="false"/>
     </div>
+
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-
-  const articleId = 1
+  import HeaderTab from '@/components/home/HeaderTab'
+  import MenuTab from '@/components/home/MenuTab'
 
   export default {
+    components: {
+      HeaderTab,
+      MenuTab,
+    },
     data() {
       return {
         value: '',
         defaultData: 'preview',
-        articleId: '1',
+        id: '',
         title: ''
       };
     },
+    watch: {
+      '$route'(to, from) {
+        console.log(to.params)// 在此调用函数
+      }
+    },
     mounted() {
-      this.getArticleById(articleId)
+      this.getArticleById()
     },
     methods: {
-      getArticleById(articleId) {
+      getArticleById() {
 
         var _this = this;
 
         axios({
           method: 'get',
-          url: '/article/1',
+          url: '/article/' + _this.$route.params.id,
           withCredentials: true,
           params: {}
         }).then(function (res) {
@@ -58,10 +71,10 @@
 <style scoped>
 
   .md-shodow {
-  margin: 10px 30px;
+    margin: 10px 30px;
   }
 
-  .md-shodow .article-title-box{
+  .md-shodow .article-title-box {
     padding: 10px 10px;
   }
 

@@ -24,14 +24,9 @@ Vue.use(ElementUI)
 ...
 
 ```
-
 ### Use wordcloud
-
 ```
 npm i echarts-wordcloud -S
-
-
-
 ```
 
 ### Use ElementUI NavMenu

@@ -3,8 +3,8 @@
     <div>
       <header-tab></header-tab>
     </div>
-    <div class="login-bg"></div>
-    <div class="login-content">
+    <div class="register-bg"></div>
+    <div class="register-content">
       <el-form :model="userForm" status-icon :rules="userRule" ref="userForm" label-width="100px">
         <!--<el-form-item label="用户名" prop="name">-->
         <el-input v-model="userForm.name" placeholder="用户名"></el-input>
@@ -13,11 +13,11 @@
         <el-input type="password" v-model="userForm.pass" autocomplete="off" placeholder="密码"></el-input>
         <!--</el-form-item>-->
         <!--<el-form-item>-->
-        <div class="login-button">
-          <el-button type="info" round @click="submitForm('userForm')" class="login-button-left">登录</el-button>
+        <div class="register-button">
+          <el-button type="info" round @click="submitForm('userForm')" class="register-button-left">注册</el-button>
         </div>
-        <div class="login-more-sign">
-          <router-link :to="{path:'/register'}"><h6>没有账号? 注册</h6></router-link>
+        <div class="register-more-sign">
+          <router-link :to="{path:'/login'}"><h6>已有账号? 登录</h6></router-link>
         </div>
         <!--<el-button @click="resetForm('userForm')">重置</el-button>-->
         <!--</el-form-item>-->
@@ -29,7 +29,6 @@
 <script>
   import axios from 'axios'
   import HeaderTab from '@/components/home/HeaderTab'
-  import { mapMutations } from 'vuex';
 
   export default {
     components: {
@@ -75,12 +74,12 @@
       };
     },
     methods: {
-      ...mapMutations(['changeUser']),
       submitForm(formName) {
         var _this = this
+        debugger
         _this.$refs[formName].validate((valid) => {
           if (valid) {
-            //校验过程...
+            alert('submit!');
           } else {
             console.log('error submit!!');
             return false;
@@ -97,19 +96,21 @@
 
         axios({
           method: 'post',
-          url: '/user/login',
+          url: '/user/register',
           withCredentials: true,
           params: {}
         }).then(function (response) {
+            debugger
             var code = response.data.code
             if (code === '200') {
-              console.log(_this.$store)
+              alert('success login')
 
-              //store user info
-              _this.saveUserInfo(response.data.data)
-
+              console.log(_this.$store.state.isLogin)
               _this.$router.push("/")
             }
+
+            //store user info
+            this.saveUserInfo(response.data.data)
 
           }.bind(this)
         ).catch(
@@ -121,19 +122,17 @@
         this.$refs[formName].resetFields();
       },
       saveUserInfo(userInfo) {
-        var _this = this
-        console.log(userInfo)
-
         sessionStorage.setItem("userToken", userInfo.token)
         sessionStorage.setItem("username", userInfo.username)
-        _this.$store.dispatch("changeUser", userInfo)
+        this.$store.dispatch("setUser", userInfo.username)
+        this.$store.dispatch("setToken", userInfo.token)
       }
     }
   }
 </script>
 
 <style>
-  .login-content {
+  .register-content {
     position: absolute;
     top: 250px;
     left: 50%;
@@ -145,7 +144,7 @@
     color: white;
   }
 
-  .login-bg {
+  .register-bg {
     opacity: 0.2;
     z-index: -1;
     background: url("../../assets/img/login_bg.jpg") no-repeat;
@@ -163,13 +162,13 @@
     text-align: center;
   }
 
-  .login-content .login-button-left {
+  .register-content .register-button-left {
     float: left;
     padding: 10px 85px;
     margin: 10px 0;
   }
 
-  .login-more-sign {
+  .register-more-sign {
     color: #556B2F;
   }
 

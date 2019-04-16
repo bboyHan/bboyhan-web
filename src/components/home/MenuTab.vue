@@ -41,14 +41,14 @@
     },
     methods: {
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       redirectMenu(url){
         console.log(url)
-        if (url === '/article') {
+        if (url === '/article' || url === '/markwall'|| url === '/user' || url === '/join') {
           return false
         }
         return true

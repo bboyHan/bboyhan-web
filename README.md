@@ -67,11 +67,14 @@ npm install vuex --save
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：
+Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，
+它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：
 
-1.Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。
+1.Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，
+若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。
 
-2.你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。
+2.你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。
+这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。
 
 ```
 
@@ -83,24 +86,62 @@ Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个�
 方法1.将index.js中的host的值改为‘0.0.0.0’
 
 方法2.修改package.json中script下dev的值，在后面加入--host 0.0.0.0 也可以解决
+```
 
 ### 跳转route 携带参数
-
+```
 this.$router.push({ path: "/article/1", query: { id: "1" } });
 this.$router.push({ name:'/article/2', params: { id: "2" } });
 
 console.log(this.$route.params.id)
 console.log(this.$route.query.id)
-
+```
 ### created和mounted的区别
-
+```
 created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图
 mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作
-
 ```
 
-## Build Setup
+### 解决build webpack的时候css中的background背景图404问题
+```
+问题一描述：css中配置如下，但打包之后报错 net:ERR_FILE_NOT_FOUND
+.img {
+background: url("./assets/img/demo.jpg") no-repeat;
+}
 
+解决：找到build/utils.js中的代码
+if (options.extract) {
+  return ExtractTextPlugin.extract({
+    use: loaders,
+    publicPath: '../../', //添加此行
+    fallback: 'vue-style-loader'
+  })
+}
+
+问题二描述：build之后页面空白,not found
+
+解决：找到config/index.js中的build.assetsPublicPath
+
+assetsPublicPath: '/' -> 改为 './'
+```
+
+### 如何刷新当前页面
+```
+场景描述：处理某些页面（组件）时，可能需要重新刷新当前页面。
+
+存在问题：
+1. 使用vue-router重新路由到当前页面，页面不会刷新
+2. 采用window.reload()，或者router.go(0)刷新时，整个浏览器进行了重新加载，闪烁，体验不好
+
+解决：
+provide / inject 组合
+
+作用：允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
+
+```
+[参考链接](https://www.cnblogs.com/yinn/p/9056731.html)
+
+## Build Setup
 ``` bash
 # install dependencies
 npm install

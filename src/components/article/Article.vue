@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div>
       <div class="md-shodow">
         <div class="article-title-box">
@@ -15,7 +14,6 @@
                       :editable="false"/>
       </div>
     </div>
-
   </div>
 </template>
 

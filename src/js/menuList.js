@@ -39,13 +39,13 @@ const menu = [{
   children:[
     {
       id:"5",
-      router:'/b',//路由
-      name:'角色管理',//二级菜单
+      router:'/user',//路由
+      name:'个人中心',//二级菜单
       children:[]
     },{
       id:"6",
-      router:'/c',
-      name:'账户管理',
+      router:'/join',
+      name:'加入我们',
       children:[]
     }
   ]

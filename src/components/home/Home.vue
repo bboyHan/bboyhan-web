@@ -21,11 +21,7 @@
     components: {
       HeaderTab,
       MenuTab,
-    },
-    data() {
-      return {}
-    },
-    methods: {}
+    }
   }
 </script>
 

@@ -2,19 +2,44 @@
   "code":"200",
   "data": [
     {
-      "title":"标题1:TEXT 测试文章1",
+      "title":"一、Mysql的基本操作与数据类型",
       "id":1,
-      "introduction":"这部分是摘要内容......"
+      "introduction": "1、连接数据库;2、库操作;3、表操作;4、数据操作;5、数据类型"
     },
     {
-      "title":"标题2:TEXT 测试文章2",
+      "title":"二、Linux环境安装Mysql",
       "id":2,
-      "introduction":"这部分是摘要内容......"
+      "introduction":"将下载的文件上传至服务器上某一路径下(/usr/src/software/)，进行解压。"
     },
     {
-      "title":"标题3:TEXT 测试文章3",
+      "title":"一、Java的概念、安装与配置",
       "id":3,
-      "introduction":"这部分是摘要内容......"
+      "introduction":"Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。"
+    },
+    {
+      "title":"二、Java的基础语法与规范",
+      "id":4,
+      "introduction":"首先，所有的Java程序，都必须要有一个称之为“主方法”的函数入口，这个入口便是public static void main(String []args) 方法（我们将它简称为main方法）。也就是说，要让一个Java程序运行起来，就必须通过main方法才可以执行一系列的操作与运算，最终达到目的需求。"
+    },
+    {
+      "title":"三、Java的进制、数据类型与内存分析",
+      "id":5,
+      "introduction":"我们都知道，在计算机里边，所有的一切都是以二进制01的形式进行表示。在计算机中，表示数据的最小单位，叫位（bit），也叫比特位。byte，叫做字节。"
+    },
+    {
+      "title":"四、Java的操作符与流程控制",
+      "id":6,
+      "introduction":"我们知道了程序用变量来表示数据，而操作符，顾名思义，就是来操作数据。在由操作符和数据所构成的表达式，被操纵的数据也被称为数据元。"
+    },
+    {
+      "title":"一、Go的安装与配置",
+      "id":7,
+      "introduction":"比较流行的开发工具有：Sublime、VS Code、LiteIDE、GoLand。"
+    },
+    {
+      "title":"二、Go的基础语法与规范",
+      "id":8,
+      "introduction":"我们在使用其它语言的情况，比如Java（本主是Java出身，0rz，以此为例），是有“包”这个概念的，其实，就可以简单的理解为是便于管理和组织所有的文件所使用的，比如java中常用的类String，它就隶属于“java.lang”包下的类。（当然，新手不理解也没有关系）。在Go当中，也是类似的概念，它将我们的go文件（文件的后缀名为“.go”）组织起来，可以方便进行归类、复用等。 "
     }
   ],
   "msg": ""

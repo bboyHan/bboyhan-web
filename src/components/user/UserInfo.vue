@@ -51,16 +51,16 @@
             <p>在公司负责Xxx...</p>
           </el-card>
         </el-timeline-item>
+        <el-timeline-item timestamp="2018.3 - 2018.10" placement="top" type="info">
+          <el-card>
+            <h4>Xx 区块链公司</h4>
+            <p>在公司负责Xxx...</p>
+          </el-card>
+        </el-timeline-item>
         <el-timeline-item timestamp="2015.7 - 2018.3" placement="top" type="warning">
           <el-card>
             <h4>Xx 国企</h4>
             <div>职位： </div>
-            <p>在公司负责Xxx...</p>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item timestamp="2018.3 - 2018.10" placement="top" type="info">
-          <el-card>
-            <h4>Xx 区块链公司</h4>
             <p>在公司负责Xxx...</p>
           </el-card>
         </el-timeline-item>

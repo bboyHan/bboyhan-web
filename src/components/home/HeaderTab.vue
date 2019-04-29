@@ -1,6 +1,5 @@
 <template>
-  <div class="header-tab">
-
+  <div class="header-tab" :class="{'headerTab':navBarFixed}">
     <img src="../../assets/img/logo.jpg" class="tab-left"/>
     <div class="tab-right">
       <el-menu router :default-active="tabIndex" mode="horizontal" @select="handleSelect" v-show="!isLogin">
@@ -20,7 +19,8 @@
   export default {
     data() {
       return {
-        tabIndex: this.$route.path
+        tabIndex: this.$route.path,
+        navBarFixed: null
       }
     },
     inject: ['reload'],
@@ -42,7 +42,22 @@
         this.$store.commit("lougout")
         // this.$router.go(0)
         this.reload()
+      },
+      watchScroll() {
+        var _this = this
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        // console.log(scrollTop)
+        // 当滚动超过 59 时(我的导航栏高度是60，根据自己情况而定)，实现吸顶效果
+        if (scrollTop > 59) {
+          _this.navBarFixed = true
+        } else {
+          _this.navBarFixed = false
+        }
       }
+    },
+    mounted() {
+      // 事件监听滚动条
+      window.addEventListener('scroll', this.watchScroll)
     }
   }
 </script>
@@ -54,7 +69,18 @@
     line-height: 60px;
     position: relative;
     border-bottom: #b4b4b4 1px solid;
-    /*background-color: lightskyblue;*/
+    background-color: #fff;
+  }
+
+  .headerTab{
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    border-bottom: #b4b4b4 1px solid;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 999;
   }
 
   .header-tab .tab-left {

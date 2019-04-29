@@ -1,0 +1,26 @@
+{
+  "code":"200",
+  "data": [
+    {
+      "title":"标题1:TEXT 测试资源1",
+      "id":1,
+      "introduction":"这部分是摘要内容......"
+    },
+    {
+      "title":"标题2:TEXT 测试资源2",
+      "id":2,
+      "introduction":"这部分是摘要内容......"
+    },
+    {
+      "title":"标题3:TEXT 测试资源3",
+      "id":3,
+      "introduction":"这部分是摘要内容......"
+    },
+    {
+      "title":"标题4:TEXT 测试资源4",
+      "id":4,
+      "introduction":"这部分是摘要内容......"
+    }
+  ],
+  "msg": ""
+}

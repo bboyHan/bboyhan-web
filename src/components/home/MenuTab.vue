@@ -12,8 +12,9 @@
                 <i :class="item.icon"></i>{{item.name}}
               </template>
               <el-menu-item-group>
-                <el-menu-item v-for="(temp,index) in item.children" :key="index" :index="temp.router" :disabled="redirectMenu(temp.router)">{{temp.name}}
-                <!--<el-menu-item v-for="(temp,index) in item.children" :key="index" :index="temp.router" :disabled="true">{{temp.name}}-->
+                <el-menu-item v-for="(temp,index) in item.children" :key="index" :index="temp.router"
+                              :disabled="redirectMenu(temp.router)">{{temp.name}}
+
                 </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
@@ -46,9 +47,10 @@
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
       },
-      redirectMenu(url){
+      redirectMenu(url) {
         console.log(url)
-        if (url === '/article' || url === '/markwall'|| url === '/user' || url === '/join') {
+        if (url === '/article' || url === '/markwall' || url === '/user'
+          || url === '/join' || url === '/share' || url === '/dataview'){
           return false
         }
         return true

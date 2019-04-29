@@ -141,6 +141,41 @@ provide / inject 组合
 ```
 [参考链接](https://www.cnblogs.com/yinn/p/9056731.html)
 
+### 实现页面滚动时，顶部导航栏固定的效果
+```
+<div class="header-tab" :class="{'headerTab':navBarFixed}">
+  ...
+</div>
+
+method:{
+  watchScroll() {
+    var _this = this
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    console.log(scrollTop)
+    //  当滚动超过 59 时，实现吸顶效果
+    if (scrollTop > 59) {
+      _this.navBarFixed = true
+    } else {
+      _this.navBarFixed = false
+    }
+    console.log(_this.navBarFixed)
+  }
+},
+mounted() {
+  // 事件监听滚动条
+  window.addEventListener('scroll', this.watchScroll)
+}
+
+
+.headerTab{
+  ...
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+```
+
+
 ## Build Setup
 ``` bash
 # install dependencies

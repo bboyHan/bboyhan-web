@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="article-list-box">
+
       <el-card class="article-list-card" v-for="(item,index) in articleList" :key="index" :index="item.id">
+
         <div slot="header" class="clearfix">
           <span><router-link :to="{path:'/article/'+item.id,params:{'id':item.id}}">{{item.title}}</router-link></span>
           <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
@@ -20,7 +22,8 @@
   export default {
     data() {
       return {
-        articleList: []
+        articleList: [],
+        tabPosition: 'left'
       };
     },
     mounted() {

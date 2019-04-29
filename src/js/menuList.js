@@ -7,11 +7,18 @@ const menu = [{
       id:"1",
       router:'/article',//路由
       name:'技术杂文',//二级菜单
-      children:[]
+      children:[
+
+      ]
     },{
       id:"2",
-      router:'/resources',
+      router:'/share',
       name:'资源分享',
+      children:[]
+    },{
+      id:"7",
+      router:'/dataview',
+      name:'数据分析',
       children:[]
     }
   ]
@@ -52,5 +59,5 @@ const menu = [{
 }];
 
 export default {
-  menu:menu,
+  menu: menu,
 }

@@ -14,7 +14,7 @@
         <!--</el-form-item>-->
         <!--<el-form-item>-->
         <div class="login-button">
-          <el-button type="info" round @click="submitForm('userForm')" class="login-button-left">登录</el-button>
+          <button @click="submitForm('userForm')" class="login-button-left">登录</button>
         </div>
         <div class="login-more-sign">
           <router-link :to="{path:'/register'}"><h6>没有账号? 注册</h6></router-link>
@@ -163,10 +163,27 @@
     text-align: center;
   }
 
-  .login-content .login-button-left {
+  /*.login-content .login-button-left {
     float: left;
     padding: 10px 85px;
     margin: 10px 0;
+  }*/
+  .login-content .login-button-left {
+    width: 200px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0; /* 边框宽度 */
+    border-radius: 7px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    font-family: Microsoft YaHei; /* 设置字体 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+    margin: 10px 0;
+  }
+
+  .login-content .login-button-left:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
   }
 
   .login-more-sign {

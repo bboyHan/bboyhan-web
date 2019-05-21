@@ -192,3 +192,28 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+### vue引入jquery
+
+```
+# package.json 添加
+
+"dependencies": {
+    "jquery": "^2.2.3"
+}
+
+
+# build/webpack.base.conf.js 添加
+
+var webpack = require("webpack")
+
+module.exports = {
+  plugins: [
+      new webpack.optimize.CommonsChunkPlugin('common.js'),
+      new webpack.ProvidePlugin({
+        jQuery: "jquery",
+        $: "jquery"
+      })
+    ]
+}
+```
